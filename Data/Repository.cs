@@ -9,12 +9,16 @@ using System.Data.SqlClient;
 using System.Reflection;
 
 namespace Data
+
+
+
 {
     public class Repository<T>
     {
+
         private readonly string ConnectionString = @"Data Source = (localdb)\MSSQLLocalDB;Initial Catalog = MoviesDb; Integrated Security = True;";
 
-        public void Insert(T element , bool UpdateToNull = false)
+        public void Insert(T element, bool UpdateToNull = false)
         {
             var fields = typeof(T).GetProperties().Where(f => UpdateToNull ? true : f.GetValue(element) != null).Select(f => new { Name = f.Name, }).ToArray();
             var sql = $"Insert into {typeof(T).Name} ({string.Join(",", fields.Select(x => x.Name))}) values ({string.Join(",", fields.Select(x => $"@{x.Name}"))})";

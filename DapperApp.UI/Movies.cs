@@ -37,5 +37,11 @@ namespace DapperApp.UI
             AddMovie am = new AddMovie();
             am.Show();
         }
+
+        private void btnCreateDb_Click(object sender, EventArgs e)
+        {
+            var repo = new Data.Repository<Movie>();
+
+        }
     }
 }

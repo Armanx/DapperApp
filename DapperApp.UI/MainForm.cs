@@ -18,6 +18,10 @@ namespace DapperApp.UI
         {
             InitializeComponent();
             frmMovies = new Movies();
+            var dapperForm = new Dapper();
+
+            dapperForm.Show();
+
         }
 
         private Movies frmMovies { get; set; }
@@ -42,6 +46,11 @@ namespace DapperApp.UI
             var p = frmMovies.Controls.Find(this.Name, false);
 
 
+        }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

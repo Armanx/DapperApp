@@ -97,6 +97,7 @@ namespace DapperApp.UI
             this.Controls.Add(this.btnMovies);
             this.Name = "MainForm";
             this.Text = "MovieDb";
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.ResumeLayout(false);
 
         }
