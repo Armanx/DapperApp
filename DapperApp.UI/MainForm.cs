@@ -17,8 +17,10 @@ namespace DapperApp.UI
         public MainForm()
         {
             InitializeComponent();
+            frmMovies = new Movies();
         }
 
+        private Movies frmMovies { get; set; }
         private void button1_Click(object sender, EventArgs e)
         {
             var repo = new Repository<Actor>();
@@ -29,6 +31,15 @@ namespace DapperApp.UI
 
             //repo.HardDeleteById(Guid.Parse("935957B6-8CB9-451E-80F2-7407D55EEFA4"));
 
+
+
+        }
+
+        private void btnMovies_Click(object sender, EventArgs e)
+        {
+
+            frmMovies.Show();
+            var p = frmMovies.Controls.Find(this.Name, false);
 
 
         }

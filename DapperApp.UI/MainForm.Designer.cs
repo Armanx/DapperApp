@@ -33,6 +33,7 @@ namespace DapperApp.UI
             this.btnActors = new System.Windows.Forms.Button();
             this.btnGenre = new System.Windows.Forms.Button();
             this.btnDirectors = new System.Windows.Forms.Button();
+            this.testUserControl1 = new DapperApp.UI.TestUserControl();
             this.SuspendLayout();
             // 
             // btnMovies
@@ -44,6 +45,7 @@ namespace DapperApp.UI
             this.btnMovies.TabIndex = 0;
             this.btnMovies.Text = "Movies";
             this.btnMovies.UseVisualStyleBackColor = true;
+            this.btnMovies.Click += new System.EventHandler(this.btnMovies_Click);
             // 
             // btnActors
             // 
@@ -75,11 +77,20 @@ namespace DapperApp.UI
             this.btnDirectors.Text = "Directors";
             this.btnDirectors.UseVisualStyleBackColor = true;
             // 
+            // testUserControl1
+            // 
+            this.testUserControl1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.testUserControl1.Location = new System.Drawing.Point(286, 12);
+            this.testUserControl1.Name = "testUserControl1";
+            this.testUserControl1.Size = new System.Drawing.Size(612, 55);
+            this.testUserControl1.TabIndex = 4;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 921);
+            this.Controls.Add(this.testUserControl1);
             this.Controls.Add(this.btnDirectors);
             this.Controls.Add(this.btnGenre);
             this.Controls.Add(this.btnActors);
@@ -96,6 +107,7 @@ namespace DapperApp.UI
         private System.Windows.Forms.Button btnActors;
         private System.Windows.Forms.Button btnGenre;
         private System.Windows.Forms.Button btnDirectors;
+        private TestUserControl testUserControl1;
     }
 }
 
