@@ -1,5 +1,6 @@
 ﻿using Data;
 using DomeinCore;
+using Services.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class MovieService
+    public class MovieService : IService
     {
         private Repository<Movie> MovieRepo { get; set; }
         private Repository<Genre> GenraRepo { get; set; }
@@ -24,9 +25,40 @@ namespace Services
             MovieRepo.Insert(item);
         }
 
-        public List<Movie> GetAllMovies()
+        public List<IDomainObject> GetAll()
         {
-            return MovieRepo.GetAll();
+            return ConvertToListOfIdomainObject(MovieRepo.GetAll());
         }
+
+        public List<IDomainObject> ConvertToListOfIdomainObject(List<Movie> listOfMovie)
+        {
+            var Ilist = new List<IDomainObject>();
+            try
+            {
+                foreach (var item in listOfMovie)
+                {
+                    Ilist.Add(item);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return Ilist;
+        }
+
+        public List<Movie> ConvertToListOfMovie(List<IDomainObject> listOfDomainObj)
+        {
+            var ml = new List<Movie>();
+            foreach (var item in listOfDomainObj)
+            {
+                ml.Add(item as Movie);
+            }
+            return ml;
+        }
+
+
     }
 }

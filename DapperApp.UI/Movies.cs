@@ -28,12 +28,8 @@ namespace DapperApp.UI
 
         private void Movies_Load(object sender, EventArgs e)
         {
-            List<Movie> movies = new List<Movie>();
-            movies = movieService.GetAllMovies();
-            //bindingSource1.DataSource = movies;
 
-            dgMovies.DataSource = movies;
-
+            dgMovies.DataSource = movieService.ConvertToListOfMovie(movieService.GetAll());
         }
 
         private void btnAddMovie_Click(object sender, EventArgs e)

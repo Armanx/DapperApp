@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DomeinCore
 {
-    public class Movie
+    public class Movie : IDomainObject
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

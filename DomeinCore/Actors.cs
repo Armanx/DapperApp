@@ -2,7 +2,7 @@
 
 namespace DomeinCore
 {
-    public class Actor
+    public class Actor : IDomainObject
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }
