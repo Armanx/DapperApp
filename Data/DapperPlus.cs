@@ -62,6 +62,9 @@ namespace Data
 
             using (var con = new SqlConnection(ConnectionString))
             {
+
+                var props = type.GetProperties();
+                var x = props[17].PropertyType.IsEnum;
                 var fields = type.GetProperties().Select(f => new { Name = f.Name, type = f.PropertyType.Name }).ToArray();
                 var fieldsType = fields.Select(f => f.type).ToList<String>();
                 var listOfDbTipes = DbTypeConverter(fieldsType);
@@ -100,14 +103,28 @@ namespace Data
 
         private List<string> DbTypeConverter(List<string> DotNetTypes)
         {
+
+            //TODO ENUMS and NullableTypes
             var returnList = new List<string>();
             foreach (var item in DotNetTypes)
             {
-                //int32 Guid, String
+                if (item == "Int16") { returnList.Add("smallint"); }
                 if (item == "Int32") { returnList.Add("int"); }
+                if (item == "Int64" || item == "UInt32") { returnList.Add("bigint"); }
                 if (item == "Guid") { returnList.Add("uniqueidentifier"); }
                 if (item == "String") { returnList.Add("nchar (100)"); }
                 if (item == "Boolean") { returnList.Add("bit"); }
+                if (item == "DateTime") { returnList.Add("datetime2"); }
+                if (item == "Decimal") { returnList.Add("decimal(18,2)"); }
+                if (item == "Single") { returnList.Add("real"); }
+                if (item == "Char") { returnList.Add("nvarchar(1)"); }
+                if (item == "Double") { returnList.Add("float"); }
+                if (item == "Byte[]") { returnList.Add("varbinary(max)"); }
+                if (item == "UInt64") { returnList.Add("decimal(20,0)"); }
+                if (item == "Byte") { returnList.Add("tinyint"); }
+                //TODO BYTE Array  MyByteArray = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+
+
 
             }
             return returnList;

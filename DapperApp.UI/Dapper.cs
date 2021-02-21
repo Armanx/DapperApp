@@ -65,8 +65,8 @@ namespace DapperApp.UI
         {
             var m = new Movie();
             //dapperPlus.CreateTable(m.GetType(), dapperPlus.ConnectionString);
-            var a = new Actor();
-            dapperPlus.CreateTable(a.GetType(), dapperPlus.ConnectionString);
+            var convType = new ConvertionTypes();
+            dapperPlus.CreateTable(convType.GetType(), dapperPlus.ConnectionString);
         }
 
         private void btnSetInitiCatalog_Click(object sender, EventArgs e)
