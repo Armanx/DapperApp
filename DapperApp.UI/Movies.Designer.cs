@@ -36,6 +36,7 @@ namespace DapperApp.UI
             this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Genre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Actors = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddMovie = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgMovies)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,37 +60,54 @@ namespace DapperApp.UI
             // 
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
+            this.Id.Visible = false;
             // 
             // NameOfTheMovie
             // 
             this.NameOfTheMovie.HeaderText = "Name";
             this.NameOfTheMovie.Name = "NameOfTheMovie";
+            this.NameOfTheMovie.Visible = false;
             // 
             // Year
             // 
             this.Year.HeaderText = "Year";
             this.Year.Name = "Year";
+            this.Year.Visible = false;
             // 
             // Rating
             // 
             this.Rating.HeaderText = "Rating";
             this.Rating.Name = "Rating";
+            this.Rating.Visible = false;
             // 
             // Genre
             // 
             this.Genre.HeaderText = "Genre";
             this.Genre.Name = "Genre";
+            this.Genre.Visible = false;
             // 
             // Actors
             // 
             this.Actors.HeaderText = "Actors";
             this.Actors.Name = "Actors";
+            this.Actors.Visible = false;
+            // 
+            // btnAddMovie
+            // 
+            this.btnAddMovie.Location = new System.Drawing.Point(245, 432);
+            this.btnAddMovie.Name = "btnAddMovie";
+            this.btnAddMovie.Size = new System.Drawing.Size(125, 43);
+            this.btnAddMovie.TabIndex = 1;
+            this.btnAddMovie.Text = "Add";
+            this.btnAddMovie.UseVisualStyleBackColor = true;
+            this.btnAddMovie.Click += new System.EventHandler(this.btnAddMovie_Click);
             // 
             // Movies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 921);
+            this.Controls.Add(this.btnAddMovie);
             this.Controls.Add(this.dgMovies);
             this.Name = "Movies";
             this.Text = "Movies";
@@ -109,5 +127,6 @@ namespace DapperApp.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Rating;
         private System.Windows.Forms.DataGridViewTextBoxColumn Genre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Actors;
+        private System.Windows.Forms.Button btnAddMovie;
     }
 }
