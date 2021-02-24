@@ -49,16 +49,8 @@ namespace Data
 
         public void CreateTable(Type type, string ConnectionString)
         {
-            //            CREATE TABLE Persons(
-            //    PersonID int,
-            //    LastName varchar(255),
-            //    FirstName varchar(255),
-            //    Address varchar(255),
-            //    City varchar(255)
-            //);
+
             string tbName = type.Name;
-
-
 
             using (var con = new SqlConnection(ConnectionString))
             {

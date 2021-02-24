@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Dapper;
 using System.Data.SqlClient;
 using System.Reflection;
+using Data.Interface;
 
 namespace Data
 
@@ -16,7 +17,7 @@ namespace Data
     public class Repository<T>
     {
 
-        private readonly string ConnectionString = @"Data Source = (localdb)\MSSQLLocalDB;Initial Catalog = MoviesDb; Integrated Security = True;";
+        private readonly string ConnectionString = @"Data Source = (localdb)\MSSQLLocalDB;Initial Catalog = TicketingTool; Integrated Security = True;";
 
         public void Insert(T element, bool UpdateToNull = false)
         {
